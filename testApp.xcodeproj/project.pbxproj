@@ -13,6 +13,10 @@
 		F8DE0C231C7F9C4B00B98D86 /* testApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8DE0C211C7F9C4B00B98D86 /* testApp.xcdatamodeld */; };
 		F8DE0C251C7F9C4B00B98D86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8DE0C241C7F9C4B00B98D86 /* Assets.xcassets */; };
 		F8DE0C281C7F9C4B00B98D86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8DE0C261C7F9C4B00B98D86 /* LaunchScreen.storyboard */; };
+		F8DE0C311C7F9C8000B98D86 /* Test+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE0C2F1C7F9C8000B98D86 /* Test+CoreDataProperties.swift */; };
+		F8DE0C321C7F9C8000B98D86 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE0C301C7F9C8000B98D86 /* Test.swift */; };
+		F8DE0C351C7F9D0200B98D86 /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE0C341C7F9D0200B98D86 /* TestCell.swift */; };
+		F8DE0C371C7FA07800B98D86 /* addVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE0C361C7FA07800B98D86 /* addVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		F8DE0C241C7F9C4B00B98D86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8DE0C271C7F9C4B00B98D86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8DE0C291C7F9C4B00B98D86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8DE0C2F1C7F9C8000B98D86 /* Test+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Test+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F8DE0C301C7F9C8000B98D86 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		F8DE0C341C7F9D0200B98D86 /* TestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
+		F8DE0C361C7FA07800B98D86 /* addVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,27 @@
 		F8DE0C191C7F9C4B00B98D86 /* testApp */ = {
 			isa = PBXGroup;
 			children = (
+				F8DE0C331C7F9C8600B98D86 /* Model */,
 				F8DE0C1A1C7F9C4B00B98D86 /* AppDelegate.swift */,
 				F8DE0C1C1C7F9C4B00B98D86 /* ViewController.swift */,
+				F8DE0C341C7F9D0200B98D86 /* TestCell.swift */,
 				F8DE0C1E1C7F9C4B00B98D86 /* Main.storyboard */,
 				F8DE0C241C7F9C4B00B98D86 /* Assets.xcassets */,
 				F8DE0C261C7F9C4B00B98D86 /* LaunchScreen.storyboard */,
 				F8DE0C291C7F9C4B00B98D86 /* Info.plist */,
 				F8DE0C211C7F9C4B00B98D86 /* testApp.xcdatamodeld */,
+				F8DE0C361C7FA07800B98D86 /* addVC.swift */,
 			);
 			path = testApp;
+			sourceTree = "<group>";
+		};
+		F8DE0C331C7F9C8600B98D86 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F8DE0C2F1C7F9C8000B98D86 /* Test+CoreDataProperties.swift */,
+				F8DE0C301C7F9C8000B98D86 /* Test.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,8 +160,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8DE0C1D1C7F9C4B00B98D86 /* ViewController.swift in Sources */,
+				F8DE0C371C7FA07800B98D86 /* addVC.swift in Sources */,
+				F8DE0C351C7F9D0200B98D86 /* TestCell.swift in Sources */,
 				F8DE0C231C7F9C4B00B98D86 /* testApp.xcdatamodeld in Sources */,
+				F8DE0C321C7F9C8000B98D86 /* Test.swift in Sources */,
 				F8DE0C1B1C7F9C4B00B98D86 /* AppDelegate.swift in Sources */,
+				F8DE0C311C7F9C8000B98D86 /* Test+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
