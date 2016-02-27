@@ -12,8 +12,9 @@ import CoreData
 class addVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var textfield: UITextField!
-   
     
+    var test: Test?
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,27 +23,15 @@ class addVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func addArtikel(sender: AnyObject) {
-        if let textfield = textfield.text where textfield != "" {
-            
-            let app = UIApplication.sharedApplication().delegate as! AppDelegate
-            let context = app.managedObjectContext
-            let entity = NSEntityDescription.entityForName("Test", inManagedObjectContext: context)!
-            let test = Test(entity: entity, insertIntoManagedObjectContext:  context)
-            test.number = textfield
-            
-            
-            context.insertObject(test)
-            
-            do {
-                try context.save()
-            } catch {
-                print("Kan het artikel niet opslaan!")
-            }
-            
-            dismissViewControllerAnimated(true, completion: nil)
-            
-            
+        guard let textfield = textfield.text where textfield != "" else {
+            return
         }
+        
+        
+        CoreDataService.inst.saveData("\(textfield)", textfield: "\(textfield)", test: test)
+        
+        dismissViewControllerAnimated(true, completion: nil)
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

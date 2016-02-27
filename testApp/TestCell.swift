@@ -12,30 +12,38 @@ import CoreData
 class TestCell: UITableViewCell {
     
     var check = false
+    var tests = Test()
+    var test: Test?
     
-    @IBOutlet weak var number: UILabel!
-    @IBOutlet weak var textfield: UITextField!
+    @IBOutlet weak var numberTxt: UILabel!
+    @IBOutlet weak var textfieldTxt: UITextField!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
     
     func configureCell(test: Test) {
-        number.text = test.number
+        numberTxt.text = test.number
         
     }
     
     @IBAction func editBtnPress(sender: AnyObject) {
-        if let textfield = textfield.text where textfield != "" {
-            
-            number.text = "\(Int(number.text!)! - Int(textfield)!)"
-            check = true
-        }
+        guard let textfield = textfieldTxt.text where textfield != "", let number = numberTxt.text where number != "" else {
+                return
+            }
+        
+        
+        
+        numberTxt.text = "\(Int(number)! + Int(textfield)!)"
+        check = true
+        
+    
+        CoreDataService.inst.saveData("\(numberTxt.text!)", textfield: "\(textfieldTxt)", test: test)
         
         if check == true {
             
-            textfield.text = ""
+            textfieldTxt.text = ""
             self.endEditing(true)
             check = false
             

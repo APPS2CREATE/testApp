@@ -53,7 +53,7 @@
                                                     </constraints>
                                                     <state key="normal" title="edit"/>
                                                     <connections>
-                                                        <action selector="editBtnPress:" destination="j4h-XE-1ev" eventType="touchUpInside" id="Vwd-Rg-Bpg"/>
+                                                        <action selector="editBtnPress:" destination="j4h-XE-1ev" eventType="touchUpInside" id="mp3-rs-myX"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -70,8 +70,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="number" destination="Ckg-GI-p0X" id="Yv2-9S-b7k"/>
-                                            <outlet property="textfield" destination="thP-z5-cyu" id="zZ0-ty-xx9"/>
+                                            <outlet property="numberTxt" destination="Ckg-GI-p0X" id="mQ4-De-nhq"/>
+                                            <outlet property="textfieldTxt" destination="thP-z5-cyu" id="JAs-of-820"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -101,6 +101,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="2AH-64-90r" id="GVB-11-DXI"/>
+                        <segue destination="JJx-ls-q2e" kind="show" identifier="AddVC" id="4Ep-ps-aQV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -157,4 +158,7 @@
             <point key="canvasLocation" x="1069" y="429"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="4Ep-ps-aQV"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -12,86 +12,65 @@ import CoreData
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var tableView: UITableView!
     
-    var tests = [Test]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        CoreDataService.inst.fetchData()
         
         tableView.delegate = self
         tableView.dataSource = self
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTableView", name: "reloadData", object: nil)
+        
     }
     
-    override func viewDidAppear(animated: Bool) {
-        fetchAndSetResult()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         tableView.reloadData()
     }
     
-    func fetchAndSetResult() {
-        let app = UIApplication.sharedApplication().delegate as! AppDelegate
-        let context = app.managedObjectContext
-        let fetchRequest = NSFetchRequest(entityName: "Test")
-        
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                abort()
-            }
-        }
-        
-        do {
-            let results = try context.executeFetchRequest(fetchRequest)
-            self.tests = results as! [Test]
-        } catch let err as NSError{
-            print(err.debugDescription)
-        }
+    func reloadTableView() {
+        tableView.reloadData()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCellWithIdentifier("TestCell") as? TestCell {
-            let test = tests[indexPath.row]
-            cell.selectionStyle = .None
-            cell.textfield.text = test.textfield
-            cell.configureCell(test)
-            return cell
-        } else {
+        guard let cell = tableView.dequeueReusableCellWithIdentifier("TestCell") as? TestCell else {
             return TestCell()
         }
-    }
+        
+        let test = CoreDataService.inst.tests[indexPath.row]
+        cell.configureCell(test)
+        
+        return cell    }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        
+        let editAction = UITableViewRowAction(style: .Default, title: "Edit") { (UITableViewRowAction, indexPath: NSIndexPath) -> Void in
+            let row = CoreDataService.inst.tests[indexPath.row]
+            self.performSegueWithIdentifier("AddVC", sender: row)
+        }
+
+        let deleteAction = UITableViewRowAction(style: .Default, title: "Delete") { (UITableViewRowAction, indexPath: NSIndexPath) -> Void in
+            CoreDataService.inst.deleteData(indexPath.row)
+        }
+        
+        
+        deleteAction.backgroundColor = UIColor.redColor()
+        
+        return [deleteAction, editAction]
+    }
+
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return tests.count
+        return CoreDataService.inst.tests.count
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        switch editingStyle {
-        case .Delete:
-            // remove the deleted item from the model
-            let appDel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            let context:NSManagedObjectContext = appDel.managedObjectContext
-            context.deleteObject(tests[indexPath.row] as NSManagedObject)
-            tests.removeAtIndex(indexPath.row)
-            do {
-                try context.save()
-            } catch {
-                print("could not save")
-                
-            }
-            
-            //tableView.reloadData()
-            // remove the deleted item from the `UITableView`
-            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        default:
-            return
-            
-        }
-    }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.tableView.endEditing(true)

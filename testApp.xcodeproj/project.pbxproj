@@ -13,10 +13,11 @@
 		F8DE0C231C7F9C4B00B98D86 /* testApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8DE0C211C7F9C4B00B98D86 /* testApp.xcdatamodeld */; };
 		F8DE0C251C7F9C4B00B98D86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8DE0C241C7F9C4B00B98D86 /* Assets.xcassets */; };
 		F8DE0C281C7F9C4B00B98D86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8DE0C261C7F9C4B00B98D86 /* LaunchScreen.storyboard */; };
-		F8DE0C311C7F9C8000B98D86 /* Test+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE0C2F1C7F9C8000B98D86 /* Test+CoreDataProperties.swift */; };
-		F8DE0C321C7F9C8000B98D86 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE0C301C7F9C8000B98D86 /* Test.swift */; };
 		F8DE0C351C7F9D0200B98D86 /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE0C341C7F9D0200B98D86 /* TestCell.swift */; };
 		F8DE0C371C7FA07800B98D86 /* addVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE0C361C7FA07800B98D86 /* addVC.swift */; };
+		F8DE0C411C81BD0D00B98D86 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE0C401C81BD0D00B98D86 /* CoreDataService.swift */; };
+		F8DE0C441C81D66700B98D86 /* Test+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE0C421C81D66700B98D86 /* Test+CoreDataProperties.swift */; };
+		F8DE0C451C81D66700B98D86 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE0C431C81D66700B98D86 /* Test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +29,11 @@
 		F8DE0C241C7F9C4B00B98D86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8DE0C271C7F9C4B00B98D86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8DE0C291C7F9C4B00B98D86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8DE0C2F1C7F9C8000B98D86 /* Test+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Test+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F8DE0C301C7F9C8000B98D86 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		F8DE0C341C7F9D0200B98D86 /* TestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
 		F8DE0C361C7FA07800B98D86 /* addVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addVC.swift; sourceTree = "<group>"; };
+		F8DE0C401C81BD0D00B98D86 /* CoreDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		F8DE0C421C81D66700B98D86 /* Test+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Test+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F8DE0C431C81D66700B98D86 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				F8DE0C291C7F9C4B00B98D86 /* Info.plist */,
 				F8DE0C211C7F9C4B00B98D86 /* testApp.xcdatamodeld */,
 				F8DE0C361C7FA07800B98D86 /* addVC.swift */,
+				F8DE0C401C81BD0D00B98D86 /* CoreDataService.swift */,
 			);
 			path = testApp;
 			sourceTree = "<group>";
@@ -81,8 +84,8 @@
 		F8DE0C331C7F9C8600B98D86 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F8DE0C2F1C7F9C8000B98D86 /* Test+CoreDataProperties.swift */,
-				F8DE0C301C7F9C8000B98D86 /* Test.swift */,
+				F8DE0C421C81D66700B98D86 /* Test+CoreDataProperties.swift */,
+				F8DE0C431C81D66700B98D86 /* Test.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -163,9 +166,10 @@
 				F8DE0C371C7FA07800B98D86 /* addVC.swift in Sources */,
 				F8DE0C351C7F9D0200B98D86 /* TestCell.swift in Sources */,
 				F8DE0C231C7F9C4B00B98D86 /* testApp.xcdatamodeld in Sources */,
-				F8DE0C321C7F9C8000B98D86 /* Test.swift in Sources */,
+				F8DE0C441C81D66700B98D86 /* Test+CoreDataProperties.swift in Sources */,
+				F8DE0C451C81D66700B98D86 /* Test.swift in Sources */,
+				F8DE0C411C81BD0D00B98D86 /* CoreDataService.swift in Sources */,
 				F8DE0C1B1C7F9C4B00B98D86 /* AppDelegate.swift in Sources */,
-				F8DE0C311C7F9C8000B98D86 /* Test+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +319,7 @@
 				F8DE0C2E1C7F9C4B00B98D86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
